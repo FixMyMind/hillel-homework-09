@@ -8,11 +8,12 @@ public class GuessTheNumber {
         System.out.println("Привіт гравець! Давай зіграємо у гру \"Вгадай число!\"");
         System.out.println("Я загадав число від 0 до 10, тобі необхідно його вгадати і ввести з клавіатури.");
         System.out.println("На це у тебе є лише 3 спроби, гарної гри!");
-//        System.out.println(secretNumber); //Цей друк у консоль додано для тестування
+        System.out.println(secretNumber); //Цей друк у консоль додано для тестування
         System.out.print("Перша спроба: ");
 
+        Scanner scanner = null;
         for (int tryIndex = 0; tryIndex < 3; tryIndex++) {
-            Scanner scanner = new Scanner(System.in);
+            scanner = new Scanner(System.in);
             if (scanner.hasNextInt()) {
                 int inputNumber = scanner.nextInt();
                 if (inputNumber == secretNumber) {
@@ -34,5 +35,6 @@ public class GuessTheNumber {
                 tryIndex--;
             }
         }
+        scanner.close();
     }
 }
