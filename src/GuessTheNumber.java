@@ -13,20 +13,25 @@ public class GuessTheNumber {
 
         for (int tryIndex = 0; tryIndex < 3; tryIndex++) {
             Scanner scanner = new Scanner(System.in);
-            int inputNumber = scanner.nextInt();
-            if (inputNumber == secretNumber) {
-                System.out.println("Ти вгадав!");
-                break;
-            } else {
-                if (tryIndex == 0) {
-                    System.out.println("Нажаль це не те число. Спробуй ще!");
-                    System.out.print("Спроба 2: ");
-                } else if (tryIndex == 1) {
-                    System.out.println("Нажаль це не те число. Залишилася ще одна спроба!");
-                    System.out.print("Спроба : ");
+            if (scanner.hasNextInt()) {
+                int inputNumber = scanner.nextInt();
+                if (inputNumber == secretNumber) {
+                    System.out.println("Ти вгадав!");
+                    break;
                 } else {
-                    System.out.println("Нажаль ти не вгадав, спроб більше нема.");
+                    if (tryIndex == 0) {
+                        System.out.println("Нажаль це не те число. Спробуй ще!");
+                        System.out.print("Спроба 2: ");
+                    } else if (tryIndex == 1) {
+                        System.out.println("Нажаль це не те число. Залишилася ще одна спроба!");
+                        System.out.print("Спроба 3: ");
+                    } else {
+                        System.out.println("Нажаль ти не вгадав, спроб більше нема.");
+                    }
                 }
+            } else {
+                System.out.print("Помилка вводу, ви маєте ввести ціле число. Спробуйте ще раз: ");
+                tryIndex--;
             }
         }
     }
